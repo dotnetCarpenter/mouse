@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Restart the touchpad
+
+# based on this awesome answer:
+# https://askubuntu.com/a/706134/338982
+
+xinput --list
+
+echo "Restarting device 15..."
+xinput disable 15
+xinput enable 15
