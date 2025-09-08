@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 # Restart the touchpad
-
 # based on this awesome answer:
 # https://askubuntu.com/a/706134/338982
+
+# AlpsPS/2 ALPS GlidePoint
+DEVICE_ID=16
 
 function listXinput {
 	xinput --list
@@ -11,8 +13,8 @@ function listXinput {
 
 listXinput
 
-printf "\n\033[31;1m%s\033[0m\n\n" "Restarting device 15..."
-xinput disable 15
-xinput enable 15
+printf "\n\033[31;1m%s\033[0m\n\n" "Restarting device $DEVICE_ID..."
+xinput disable $DEVICE_ID
+xinput enable $DEVICE_ID
 
 listXinput
