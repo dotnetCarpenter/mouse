@@ -4,17 +4,15 @@
 # based on this awesome answer:
 # https://askubuntu.com/a/706134/338982
 
-# AlpsPS/2 ALPS GlidePoint
-DEVICE_ID=16
+DEVICE_NAME="AlpsPS/2 ALPS GlidePoint"
+DEVICE_ID=$(xinput --list --id-only "$DEVICE_NAME")
 
-function listXinput {
-	xinput --list
-}
+xinput --list
 
-listXinput
-
+printf "\nFound device id %d of %s" $DEVICE_ID "$DEVICE_NAME"
 printf "\n\033[31;1m%s\033[0m\n\n" "Restarting device $DEVICE_ID..."
+
 xinput disable $DEVICE_ID
 xinput enable $DEVICE_ID
 
-listXinput
+xinput --list
